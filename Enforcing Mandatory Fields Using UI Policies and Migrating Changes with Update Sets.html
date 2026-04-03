@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceNow Project Modal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Button */
+        .open-btn {
+            margin-top: 100px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Modal Background */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            text-align: left;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        /* Close Button */
+        .close {
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+            color: red;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        h3 {
+            margin-top: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="open-btn" onclick="openModal()">View Project</button>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2>Enforcing Mandatory Fields Using UI Policies</h2>
+
+            <h3>Abstract</h3>
+            <p>
+                This project improves data quality in Incident Management by making the Priority field mandatory
+                when an incident moves to the "In Progress" state using UI Policies.
+            </p>
+
+            <h3>Skills Required</h3>
+            <ul>
+                <li>ServiceNow</li>
+                <li>UI Policies</li>
+                <li>Update Sets</li>
+            </ul>
+
+            <h3>Objective</h3>
+            <ul>
+                <li>Ensure Priority is captured</li>
+                <li>Improve workflow consistency</li>
+                <li>Avoid scripting</li>
+            </ul>
+
+            <h3>Implementation</h3>
+            <ol>
+                <li>Create Local Update Set</li>
+                <li>Create UI Policy (State = In Progress)</li>
+                <li>Make Priority Mandatory</li>
+                <li>Create UI Action</li>
+                <li>Test functionality</li>
+                <li>Migrate using Update Set</li>
+            </ol>
+
+            <h3>Result</h3>
+            <p>
+                Priority field enforced successfully and deployment done using Update Sets.
+            </p>
+
+            <h3>Conclusion</h3>
+            <p>
+                UI Policies help enforce rules without coding, improving data quality and maintaining system stability.
+            </p>
+
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("projectModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("projectModal").style.display = "none";
+        }
+
+        // Close when clicking outside
+        window.onclick = function(event) {
+            let modal = document.getElementById("projectModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
